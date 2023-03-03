@@ -27,7 +27,7 @@ def get_audio():
     frames = []
 
     #音频写入列表
-    for _ in tqdm(range(int(RATE / CHUNK * RECODE_SECONDS))):
+    for _ in range(int(RATE / CHUNK * RECODE_SECONDS)):
         data = stream.read(CHUNK)
         frames.append(data)
 
