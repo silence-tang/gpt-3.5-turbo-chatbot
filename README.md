@@ -27,6 +27,8 @@ You can install them simply by running `pip install xxx`.
 
 - If you want to send a message by talking, feel free to press the "Audio" button and ask your question.
 
+- You can set the time(second) for recording your audio by `RECODE_SECONDS`, which is set to 5 by default.
+
 Enjoy your chat with gpt, have a good time!
 
 
