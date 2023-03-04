@@ -12,7 +12,8 @@ This is a simple chatbot based on gpt-3.5-turbo, whisper-1 and tkinter.
 3. openai
 4. wave
 5. pyaudio
-
+6. playsound
+7. aip (baidu ai sdk)
 
 You can install them simply by running `pip install xxx`.
 
