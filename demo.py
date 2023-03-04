@@ -10,10 +10,10 @@ import sys
 
 
 log.basicConfig(filename='openai-history.log', encoding='utf-8', level=log.DEBUG)
-openai.api_key = "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"
-APP_ID = '30941984'
-API_KEY = 'tWlCGSiPv46Y8N9Iy6pm9cyY'
-SECRET_KEY = 'Be6yWI04wQ5dFODZ9uuZSEQiPfNOCFEm'
+openai.api_key = ''  # paste your openai api_key here
+APP_ID = ''          # paste your baidu ai info here
+API_KEY = ''
+SECRET_KEY = ''
 client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
 
 messages=[]
