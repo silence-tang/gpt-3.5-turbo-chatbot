@@ -4,8 +4,7 @@
 This is a simple chatbot based on gpt-3.5-turbo, whisper-1 and tkinter.
 
 ## Results
-![FT01C.png](https://i.328888.xyz/2023/03/03/FT01C.png)
-
+![GVQnQ.png](https://i.328888.xyz/2023/03/04/GVQnQ.png)
 
 ## Requirements
 1. tkinter
@@ -25,7 +24,9 @@ You can install them simply by running `pip install xxx`.
 
 - If you want to send a message by typing, feel free to type any questions in the text area then press the "Send" button.
 
-- If you want to send a message by talking, feel free to press the "Audio" button and ask your question.
+- If you want to send a message by talking, feel free to press the "Record" button and ask your question.
+
+- If you want the bot to answer you by talking, tick the "is_talk" button.
 
 - You can set the time(second) for recording your audio by `RECODE_SECONDS`, which is set to 5 by default.
 
