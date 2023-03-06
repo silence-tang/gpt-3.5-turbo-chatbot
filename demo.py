@@ -10,8 +10,8 @@ import sys
 
 
 log.basicConfig(filename='openai-history.log', encoding='utf-8', level=log.DEBUG)
-openai.api_key = ''  # paste your openai api_key here
-APP_ID = ''          # paste your baidu ai info here
+openai.api_key = "sk-"
+APP_ID = ''
 API_KEY = ''
 SECRET_KEY = ''
 client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
@@ -151,12 +151,12 @@ if __name__ == "__main__":
     IsTalkButton = Checkbutton(base, width=13, text="is_talk", variable=talk_var, onvalue=1, offvalue=0)
 
     # Create the box to enter message
-    EntryBox = Text(base, bd=0, bg="white", width=52, height=8, font="Arial")
+    EntryBox = Text(base, bd=0, bg="white", font="Arial")
     
     # Place all components on the screen
     scrollbar.place(x=595, y=6, height=350)
     ChatWindow.place(x=5, y=6, height=350, width=600)
-    EntryBox.place(x=5, y=360)
+    EntryBox.place(x=5, y=360, height=200, width=470)
     SendButton.place(x=478, y=360, height=45)
     AudioButton.place(x=478, y=360+45, height=45)
     IsTalkButton.place(x=478, y=360+90, height=45)
