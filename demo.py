@@ -39,7 +39,7 @@ def get_audio():
     frames = []
 
     #音频写入列表
-    for _ in range(int(RATE / CHUNK * RECODE_SECONDS)):
+    for _ in tqdm(range(int(RATE / CHUNK * RECODE_SECONDS))):
         data = stream.read(CHUNK)
         frames.append(data)
 
@@ -59,6 +59,7 @@ def get_audio():
 def chatbot_response(msg):
     item =  {"role": "user", "content": msg}
     messages.append(item)
+    # ChatGPT is powered by gpt-3.5-turbo, OpenAI’s most advanced language model.
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
     return str(response['choices'][0]['message']['content'])
 
@@ -122,6 +123,11 @@ def send_audio():
         playsound('res_audio.mp3')
 
 
+def delete():
+    ChatWindow.config(state=NORMAL)
+    ChatWindow.yview("0.0")
+    ChatWindow.delete("0.0", END)
+
 def exit():
     sys.exit(0)
     #销毁root窗口
@@ -138,11 +144,11 @@ if __name__ == "__main__":
     # Create Chat window
     ChatWindow = Text(base, bd=0, fg='black', bg="white", font="Arial")
     ChatWindow.config(state=DISABLED)
-    
+
     # Bind scrollbar to Chat window
     scrollbar = Scrollbar(base, command=ChatWindow.yview)
     ChatWindow['yscrollcommand'] = scrollbar.set
-    
+
     # Create Button to send message
     SendButton = Button(base, width=10, font=("Verdana", 12, 'bold'), text="Send", bg="#54BBF7", activebackground="#1495DF", fg='#ffffff', command=send)
     AudioButton = Button(base, width=10, font=("Verdana", 12, 'bold'), text="Record", bg="#54BBF7", activebackground="#1495DF", fg='#ffffff', command=send_audio)
@@ -152,14 +158,18 @@ if __name__ == "__main__":
 
     # Create the box to enter message
     EntryBox = Text(base, bd=0, bg="white", font="Arial")
+
+    # Create the clear button to clear all the msg in the chat window
+    ClearButton = Button(base, width=10, font=("Verdana", 12, 'bold'), text="Clear", bg="#54BBF7", activebackground="#1495DF", fg='#ffffff', command=delete)
     
     # Place all components on the screen
-    scrollbar.place(x=595, y=6, height=350)
-    ChatWindow.place(x=5, y=6, height=350, width=600)
+    scrollbar.place(x=586, y=6, height=350, width=15)
+    ChatWindow.place(x=5, y=6, height=350, width=585)
     EntryBox.place(x=5, y=360, height=200, width=470)
-    SendButton.place(x=478, y=360, height=45)
-    AudioButton.place(x=478, y=360+45, height=45)
-    IsTalkButton.place(x=478, y=360+90, height=45)
+    SendButton.place(x=478, y=360, height=35)
+    AudioButton.place(x=478, y=360+35, height=35)
+    IsTalkButton.place(x=478, y=360+70, height=35)
+    ClearButton.place(x=478, y=360+105, height=35)
 
     # Exit
     base.protocol("WM_DELETE_WINDOW", exit)
